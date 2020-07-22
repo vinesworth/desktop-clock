@@ -1,0 +1,42 @@
+﻿<Window x:Class="Clock.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:app="clr-namespace:Clock"
+        mc:Ignorable="d"
+        
+        Title="On-Screen Clock Widget"
+        
+        AllowsTransparency="True"
+        Background="Transparent"
+        
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        SizeToContent="WidthAndHeight"
+        MinWidth="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=Width}"
+        MinHeight="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=Height}"
+
+        Left="{app:Settings WindowLeft}"
+        Top="{app:Settings WindowTop}">
+  <Window.CommandBindings>
+    <CommandBinding Command="app:ApplicationCommands.Quit" 
+                    Executed="QuitCommandOnExecuted"/>
+  </Window.CommandBindings>
+  <Window.ContextMenu>
+    <ContextMenu>
+      <Separator />
+      <MenuItem Header="Quit" Command="app:ApplicationCommands.Quit"/>
+    </ContextMenu>
+  </Window.ContextMenu>
+  <Grid>
+    <TextBlock
+      Foreground="{app:Settings TimeColor}" 
+      FontFamily="{app:Settings TimeFontFamily}"
+      FontSize="{app:Settings TimeFontSize}"
+      Text="{Binding TimeText}"
+      HorizontalAlignment="Stretch" 
+      VerticalAlignment="Stretch"
+    />
+  </Grid>
+</Window>

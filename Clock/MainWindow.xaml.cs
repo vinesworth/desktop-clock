@@ -119,5 +119,10 @@ namespace Clock
     {
       Application.Current.Shutdown();
     }
+
+    private void ToggleTopmostOnExecuted(object sender, ExecutedRoutedEventArgs e)
+    {
+      Properties.Settings.Default.Topmost = !Properties.Settings.Default.Topmost;
+    }
   }
 }

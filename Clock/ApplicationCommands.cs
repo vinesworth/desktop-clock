@@ -7,15 +7,21 @@ namespace Clock
   static class ApplicationCommands
   {
     public static RoutedCommand Quit { get; }
+    public static RoutedCommand ToggleTopmost { get; }
 
     static ApplicationCommands()
     {
-      var inputGestures = new InputGestureCollection
-      {
-        new KeyGesture(Key.Q, ModifierKeys.Control)
-      };
+      Quit = new RoutedUICommand("Quit", nameof(Quit), typeof(ApplicationCommands),
+        new InputGestureCollection
+        {
+          new KeyGesture(Key.Q, ModifierKeys.Control)
+        });
 
-      Quit = new RoutedUICommand("Quit", "Quit", typeof(ApplicationCommands), inputGestures);
+      ToggleTopmost = new RoutedUICommand("Topmost window", nameof(ToggleTopmost), typeof(ApplicationCommands),
+        new InputGestureCollection
+        {
+          new KeyGesture(Key.T, ModifierKeys.Control)
+        });
     }
   }
 }

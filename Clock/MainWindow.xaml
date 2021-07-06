@@ -22,20 +22,31 @@
         MinHeight="{Binding RelativeSource={RelativeSource Self}, Path=Height}"
 
         Left="{app:Settings WindowLeft}"
-        Top="{app:Settings WindowTop}">
+        Top="{app:Settings WindowTop}"
+  >
+
   <Window.CommandBindings>
-    <CommandBinding Command="app:ApplicationCommands.Quit" 
-                    Executed="QuitCommandOnExecuted"/>
-    <CommandBinding Command="app:ApplicationCommands.ToggleTopmost" 
-                    Executed="ToggleTopmostOnExecuted"/>
+    <CommandBinding
+      Command="app:ApplicationCommands.Quit" 
+      Executed="QuitCommandOnExecuted"
+    />
+    <CommandBinding
+      Command="app:ApplicationCommands.ToggleTopmost" 
+      Executed="ToggleTopmostOnExecuted"
+    />
   </Window.CommandBindings>
+  
   <Window.ContextMenu>
     <ContextMenu>
-      <MenuItem Command="app:ApplicationCommands.ToggleTopmost"
-                IsCheckable="True"
-                IsChecked="{app:Settings Topmost, Mode=OneWay}"/>
+      <MenuItem
+        Command="app:ApplicationCommands.ToggleTopmost"
+        IsCheckable="True"
+        IsChecked="{app:Settings Topmost, Mode=OneWay}"
+      />
       <Separator />
-      <MenuItem Command="app:ApplicationCommands.Quit"/>
+      <MenuItem
+        Command="app:ApplicationCommands.Quit"
+      />
     </ContextMenu>
   </Window.ContextMenu>
 

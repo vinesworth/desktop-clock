@@ -36,7 +36,13 @@ namespace Clock
     private void MainWindow_Loaded(object sender, RoutedEventArgs e)
     {
       var helper = new WindowInteropHelper(this);
-      HwndSource.FromHwnd(helper.Handle).AddHook(HwndMessageHook);
+      var handle = helper.Handle;
+
+      HwndSource.FromHwnd(handle).AddHook(HwndMessageHook);
+
+      var exStyle = (int)WindowStylesInterop.GetWindowLong(handle, (int)WindowStylesInterop.GetWindowLongFields.GWL_EXSTYLE);
+      exStyle |= (int)WindowStylesInterop.ExtendedWindowStyles.WS_EX_TOOLWINDOW;
+      WindowStylesInterop.SetWindowLong(handle, (int)WindowStylesInterop.GetWindowLongFields.GWL_EXSTYLE, (IntPtr)exStyle);
     }
 
     private void MainWindow_MouseDown(object sender, MouseButtonEventArgs e)

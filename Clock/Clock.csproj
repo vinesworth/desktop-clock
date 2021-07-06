@@ -66,6 +66,7 @@
     </ApplicationDefinition>
     <Compile Include="ApplicationCommands.cs" />
     <Compile Include="SettingsExtension.cs" />
+    <Compile Include="WindowStylesInterop.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

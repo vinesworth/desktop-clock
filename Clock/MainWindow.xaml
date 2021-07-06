@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:app="clr-namespace:Clock"
+        xmlns:tb="http://www.hardcodet.net/taskbar"
         mc:Ignorable="d"
         
         Title="On-Screen Clock Widget"
@@ -11,6 +12,7 @@
         WindowStyle="None"
         AllowsTransparency="True"
         Background="Transparent"
+        ShowInTaskbar="False"
         
         Topmost="{app:Settings Topmost}"
         
@@ -36,7 +38,14 @@
       <MenuItem Command="app:ApplicationCommands.Quit"/>
     </ContextMenu>
   </Window.ContextMenu>
+
   <Grid>
+    <tb:TaskbarIcon
+      IconSource="desktop-clock.ico"
+      TrayLeftMouseDown="TaskbarIcon_TrayLeftMouseDown"
+      TrayRightMouseDown="TaskbarIcon_TrayRightMouseDown"
+    />
+
     <TextBlock
       Foreground="{app:Settings TimeColor}" 
       FontFamily="{app:Settings TimeFontFamily}"

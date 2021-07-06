@@ -28,6 +28,8 @@ namespace Clock
       MouseDown += MainWindow_MouseDown;
       SizeChanged += MainWindow_SizeChanged;
 
+      ContextMenu.PlacementTarget = this;
+
       Focus();
     }
 
@@ -123,6 +125,17 @@ namespace Clock
     private void ToggleTopmostOnExecuted(object sender, ExecutedRoutedEventArgs e)
     {
       Properties.Settings.Default.Topmost = !Properties.Settings.Default.Topmost;
+    }
+
+    private void TaskbarIcon_TrayLeftMouseDown(object sender, RoutedEventArgs e)
+    {
+      Activate();
+    }
+
+    private void TaskbarIcon_TrayRightMouseDown(object sender, RoutedEventArgs e)
+    {
+      ContextMenu.IsOpen = true;
+      CommandManager.InvalidateRequerySuggested();
     }
   }
 }

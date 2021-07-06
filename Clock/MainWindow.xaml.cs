@@ -119,6 +119,9 @@ namespace Clock
             }
           }
           break;
+
+        default:
+          break;
       }
       return IntPtr.Zero;
     }

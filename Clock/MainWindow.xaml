@@ -18,8 +18,8 @@
         
         ResizeMode="NoResize"
         SizeToContent="WidthAndHeight"
-        MinWidth="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=Width}"
-        MinHeight="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=Height}"
+        MinWidth="{Binding RelativeSource={RelativeSource Self}, Path=Width}"
+        MinHeight="{Binding RelativeSource={RelativeSource Self}, Path=Height}"
 
         Left="{app:Settings WindowLeft}"
         Top="{app:Settings WindowTop}">
